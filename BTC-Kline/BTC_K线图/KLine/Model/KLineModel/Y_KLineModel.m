@@ -330,7 +330,7 @@
                     }
                     em--;
                 }
-                NSLog(@"%f",emMaxValue.floatValue);
+//                NSLog(@"%f",emMaxValue.floatValue);
                 models[j].NineClocksMaxPrice = emMaxValue;
             }
             //第一个循环结束后，ClockFirstValue为最小值
@@ -348,7 +348,7 @@
                     }
                     em--;
                 }
-                NSLog(@"%f",emMaxValue.floatValue);
+//                NSLog(@"%f",emMaxValue.floatValue);
 
                 models[j].NineClocksMaxPrice = emMaxValue;
             }
@@ -400,7 +400,7 @@
 
 - (void) initWithArray:(NSArray *)arr;
 {
-    NSAssert(arr.count == 6, @"数组长度不足");
+    NSAssert(arr.count >= 6, @"数组长度不足");
 
     if (self)
     {

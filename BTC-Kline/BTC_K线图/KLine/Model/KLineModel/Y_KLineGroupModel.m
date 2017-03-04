@@ -17,9 +17,26 @@
     NSMutableArray *mutableArr = @[].mutableCopy;
     __block Y_KLineModel *preModel = [[Y_KLineModel alloc]init];
     
+//    //设置数据
+//    for (NSArray *valueArr in arr)
+//    {
+//        Y_KLineModel *model = [Y_KLineModel new];
+//        model.PreviousKlineModel = preModel;
+//        [model initWithArray:valueArr];
+//        model.ParentGroupModel = groupModel;
+//        
+//        [mutableArr addObject:model];
+//        
+//        preModel = model;
+//    }
+    
     //设置数据
-    for (NSArray *valueArr in arr)
+    for (NSString *valueStr in arr)
     {
+        if([valueStr isEqualToString:@""]){
+            continue;
+        }
+        NSArray *valueArr = [valueStr componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@","]];
         Y_KLineModel *model = [Y_KLineModel new];
         model.PreviousKlineModel = preModel;
         [model initWithArray:valueArr];

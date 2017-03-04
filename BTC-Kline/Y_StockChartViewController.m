@@ -14,6 +14,8 @@
 #import "Y_KLineGroupModel.h"
 #import "UIColor+Y_StockChart.h"
 #import "AppDelegate.h"
+#import "ASIHTTPRequest.h"
+
 @interface Y_StockChartViewController ()<Y_StockChartViewDataSource>
 
 @property (nonatomic, strong) Y_StockChartView *stockChartView;
@@ -94,17 +96,17 @@
             break;
         case 5:
         {
-            type = @"1hour";
+            type = @"h";
         }
             break;
         case 6:
         {
-            type = @"1day";
+            type = @"d";
         }
             break;
         case 7:
         {
-            type = @"1week";
+            type = @"w";
         }
             break;
             
@@ -123,27 +125,59 @@
     return nil;
 }
 
+
 - (void)reloadData
 {
-    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"type"] = self.type;
-    param[@"symbol"] = @"huobibtccny";
-    param[@"size"] = @"300";
-    
-    [NetWorking requestWithApi:@"https://www.btc123.com/kline/klineapi" param:param thenSuccess:^(NSDictionary *responseObject) {
-        if ([responseObject[@"isSuc"] boolValue]) {
-            Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:responseObject[@"datas"]];
-            
-            self.groupModel = groupModel;
-            [self.modelsDict setObject:groupModel forKey:self.type];
-            NSLog(@"%@",groupModel);
-            [self.stockChartView reloadData];
-        }
-        
-    } fail:^{
-        
-    }];
+    //
+    NSString *req_type = self.type;//@"d";
+    NSString *req_freq = @"601888.SS";
+    NSString *req_url = @"http://ichart.yahoo.com/table.csv?s=%@&g=%@";
+    NSString *url = [[NSString alloc] initWithFormat:req_url,req_freq,req_type];
+    NSURL *nurl = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:nurl];
+    [request setTimeOutSeconds:30];
+    [request setCachePolicy:ASIUseDefaultCachePolicy];
+    [request startSynchronous];
+    // 加载完成执行此块
+    [self Finished:request];
 }
+
+- (void)Finished:(ASIHTTPRequest *)request
+{
+    NSString *content = [request responseString];
+    NSArray *lines = [content componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    NSMutableArray *tempArr = [NSMutableArray arrayWithArray:lines];
+    [tempArr removeObjectAtIndex:0];// 第一个日期没用
+    Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:tempArr];
+//
+    self.groupModel = groupModel;
+    [self.modelsDict setObject:groupModel forKey:self.type];
+//    NSLog(@"%@",groupModel);
+    [self.stockChartView reloadData];
+}
+
+//- (void)reloadData
+//{
+//    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+//    param[@"type"] = self.type;
+//    param[@"symbol"] = @"huobibtccny";
+//    param[@"size"] = @"300";
+//    
+//    [NetWorking requestWithApi:@"https://www.btc123.com/kline/klineapi" param:param thenSuccess:^(NSDictionary *responseObject) {
+//        if ([responseObject[@"isSuc"] boolValue]) {
+//            Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:responseObject[@"datas"]];
+//            
+//            self.groupModel = groupModel;
+//            [self.modelsDict setObject:groupModel forKey:self.type];
+//            NSLog(@"%@",groupModel);
+//            [self.stockChartView reloadData];
+//        }
+//        
+//    } fail:^{
+//        
+//    }];
+//}
+
 - (Y_StockChartView *)stockChartView
 {
     if(!_stockChartView) {

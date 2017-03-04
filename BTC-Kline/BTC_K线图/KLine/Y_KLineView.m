@@ -347,7 +347,7 @@
         CGFloat oldKLineWidth = [Y_StockChartGlobalVariable kLineWidth];
 
         NSInteger oldNeedDrawStartIndex = self.kLineMainView.needDrawStartIndex;
-        NSLog(@"原来的index%ld",self.kLineMainView.needDrawStartIndex);
+//        NSLog(@"原来的index%ld",self.kLineMainView.needDrawStartIndex);
         [Y_StockChartGlobalVariable setkLineWith:oldKLineWidth * (difValue > 0 ? (1 + Y_StockChartScaleFactor) : (1 - Y_StockChartScaleFactor))];
         oldScale = pinch.scale;
         //更新MainView的宽度
@@ -362,7 +362,7 @@
             
             self.kLineMainView.pinchStartIndex = oldNeedDrawStartIndex + oldLeftArrCount - newLeftArrCount;
             //            self.kLineMainView.pinchPoint = centerPoint;
-            NSLog(@"计算得出的index%lu",self.kLineMainView.pinchStartIndex);
+//            NSLog(@"计算得出的index%lu",self.kLineMainView.pinchStartIndex);
         }
         [self.kLineMainView drawMainView];
     }
@@ -526,7 +526,7 @@
 //        isNeedPostNotification = YES;
 //    }
     
-    NSLog(@"这是  %f-----%f=====%f",scrollView.contentSize.width,scrollView.contentOffset.x,self.kLineMainView.frame.size.width);
+//    NSLog(@"这是  %f-----%f=====%f",scrollView.contentSize.width,scrollView.contentOffset.x,self.kLineMainView.frame.size.width);
 }
 
 - (void)dealloc

@@ -63,9 +63,11 @@
 		84FFC12B1CD35DF400C749F6 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC11A1CD35DF400C749F6 /* UIWebView+AFNetworking.m */; };
 		84FFC12E1CD4676F00C749F6 /* Y_StockChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC12D1CD4676F00C749F6 /* Y_StockChartView.m */; };
 		84FFC1541CD4A21600C749F6 /* UIColor+Y_StockChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC1531CD4A21600C749F6 /* UIColor+Y_StockChart.m */; };
+		FB5C7BD2EF37F05DBDEC6A13 /* libPods-BTC-Kline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDD4CA42D6E8F4471BEB007 /* libPods-BTC-Kline.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21114BE496D8C7B623E21E2E /* Pods-BTC-Kline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTC-Kline.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BTC-Kline/Pods-BTC-Kline.debug.xcconfig"; sourceTree = "<group>"; };
 		8415E1DE1CDC6D0E00F58CD3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8415E1DF1CDC6D0E00F58CD3 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		8415E1E01CDC6D0E00F58CD3 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -183,6 +185,8 @@
 		84FFC12D1CD4676F00C749F6 /* Y_StockChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y_StockChartView.m; sourceTree = "<group>"; };
 		84FFC1521CD4A21600C749F6 /* UIColor+Y_StockChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Y_StockChart.h"; sourceTree = "<group>"; };
 		84FFC1531CD4A21600C749F6 /* UIColor+Y_StockChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Y_StockChart.m"; sourceTree = "<group>"; };
+		DBDD4CA42D6E8F4471BEB007 /* libPods-BTC-Kline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BTC-Kline.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6BBCBEBBBC8CBEA25CC149F /* Pods-BTC-Kline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTC-Kline.release.xcconfig"; path = "Pods/Target Support Files/Pods-BTC-Kline/Pods-BTC-Kline.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,12 +194,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB5C7BD2EF37F05DBDEC6A13 /* libPods-BTC-Kline.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BD0D7BFAEB6EB390F85841B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBDD4CA42D6E8F4471BEB007 /* libPods-BTC-Kline.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F8C17B83E0B4AFF6D025240 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21114BE496D8C7B623E21E2E /* Pods-BTC-Kline.debug.xcconfig */,
+				F6BBCBEBBBC8CBEA25CC149F /* Pods-BTC-Kline.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8415E1DD1CDC6D0E00F58CD3 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +413,8 @@
 			children = (
 				84C0D7881CD117B40013B3D4 /* BTC-Kline */,
 				84C0D7871CD117B40013B3D4 /* Products */,
+				0F8C17B83E0B4AFF6D025240 /* Pods */,
+				0BD0D7BFAEB6EB390F85841B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -542,9 +566,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84C0D79D1CD117B40013B3D4 /* Build configuration list for PBXNativeTarget "BTC-Kline" */;
 			buildPhases = (
+				D90993B2B58CFF32CBCF338D /* [CP] Check Pods Manifest.lock */,
 				84C0D7821CD117B40013B3D4 /* Sources */,
 				84C0D7831CD117B40013B3D4 /* Frameworks */,
 				84C0D7841CD117B40013B3D4 /* Resources */,
+				137BAA536E9AC9322F22DA99 /* [CP] Embed Pods Frameworks */,
+				0DF7DA95FD78938639A58294 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -566,6 +593,7 @@
 				TargetAttributes = {
 					84C0D7851CD117B40013B3D4 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 686TP5D9Q7;
 					};
 				};
 			};
@@ -602,6 +630,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DF7DA95FD78938639A58294 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTC-Kline/Pods-BTC-Kline-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		137BAA536E9AC9322F22DA99 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTC-Kline/Pods-BTC-Kline-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D90993B2B58CFF32CBCF338D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84C0D7821CD117B40013B3D4 /* Sources */ = {
@@ -771,10 +847,12 @@
 		};
 		84C0D79E1CD117B40013B3D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21114BE496D8C7B623E21E2E /* Pods-BTC-Kline.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 686TP5D9Q7;
 				INFOPLIST_FILE = "BTC-Kline/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -786,10 +864,12 @@
 		};
 		84C0D79F1CD117B40013B3D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6BBCBEBBBC8CBEA25CC149F /* Pods-BTC-Kline.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 686TP5D9Q7;
 				INFOPLIST_FILE = "BTC-Kline/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
